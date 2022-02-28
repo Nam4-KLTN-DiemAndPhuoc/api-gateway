@@ -1,0 +1,65 @@
+TOKEN_EXPIRED: 864000000
+TOKEN_SECRET: KLTNPHUOCDIEM
+server:
+  port: 9191
+
+eureka:
+  client:
+    register-with-eureka:
+      value: true
+    fetch-registry:
+      value: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    instance:
+      hostname: localhost
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          "[/**]":
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+#      routes:
+#        - id: CART-SERVICE
+#          uri: lb://CART-SERVICE
+#          predicates:
+#            - Path=/api/cart-service/**
+#
+#        - id: CATEGORY-SERVICE
+#          uri: lb://CATEGORY-SERVICE
+#          predicates:
+#            - Path=/api/category-service/**
+#
+#        - id: ORDER-SERVICE
+#          uri: lb://ORDER-SERVICE
+#          predicates:
+#            - Path=/api/order-service/**
+#
+#        - id: USER-SERVICE
+#          uri: lb://USER-SERVICE
+#          predicates:
+#            - Path=/api/user-service/**
+#
+#        - id: SUPPLIIER-SERVICE
+#          uri: lb://SUPPLIIER-SERVICE
+#          predicates:
+#            - Path=/api/supplier-service/**
+#
+#        - id: PRODUCT-SERVICE
+#          uri: lb://PRODUCT-SERVICE
+#          predicates:
+#            - Path=/api/product-service/**
+#
+#        - id: COMMENT-SERVICE
+#          uri: lb://COMMENT-SERVICE
+#          predicates:
+#            - Path=/api/comment-service/**
+
