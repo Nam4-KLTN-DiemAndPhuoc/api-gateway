@@ -34,7 +34,6 @@ public class GatewayConfig {
                         .filters(f -> f.filter(adminFilter))
                         .uri("lb://PRODUCT-SERVICE/admin"))
                 .route("PRODUCT-SERVICE", r -> r.path("/api/product-service/product/**")
-                        .filters(f -> f.filter(filter))
                         .uri("lb://PRODUCT-SERVICE/product"))
                 .route("PRODUCT-SERVICE", r -> r.path("/api/product-service/image/**")
                         .filters(f -> f.filter(filter))
