@@ -63,7 +63,6 @@ public class GatewayConfig {
                         .filters(f -> f.filter(adminFilter))
                         .uri("lb://CATEGORY-SERVICE/admin"))
                 .route("CATEGORY-SERVICE", r -> r.path("/api/category-service/category/**")
-                        .filters(f -> f.filter(filter))
                         .uri("lb://CATEGORY-SERVICE/category"))
 
                 // comment
@@ -76,7 +75,6 @@ public class GatewayConfig {
                         .filters(f -> f.filter(adminFilter))
                         .uri("lb://SUPPLIER-SERVICE/admin"))
                 .route("SUPPLIER-SERVICE", r -> r.path("/api/supplier-service/supplier/**")
-                        .filters(f -> f.filter(filter))
                         .uri("lb://SUPPLIER-SERVICE/supplier"))
                 .build();
     }
