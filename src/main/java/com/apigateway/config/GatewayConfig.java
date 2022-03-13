@@ -39,7 +39,7 @@ public class GatewayConfig {
                         .filters(f -> f.filter(filter))
                         .uri("lb://PRODUCT-SERVICE/image"))
                 .route("PRODUCT-SERVICE", r -> r.path("/api/product-service/attribute/**")
-                        .filters(f -> f.filter(filter))
+
                         .uri("lb://PRODUCT-SERVICE/attribute"))
 
                 // order
