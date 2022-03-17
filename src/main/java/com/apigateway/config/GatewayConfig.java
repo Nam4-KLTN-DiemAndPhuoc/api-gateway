@@ -36,7 +36,6 @@ public class GatewayConfig {
                 .route("PRODUCT-SERVICE", r -> r.path("/api/product-service/product/**")
                         .uri("lb://PRODUCT-SERVICE/product"))
                 .route("PRODUCT-SERVICE", r -> r.path("/api/product-service/image/**")
-                        .filters(f -> f.filter(filter))
                         .uri("lb://PRODUCT-SERVICE/image"))
                 .route("PRODUCT-SERVICE", r -> r.path("/api/product-service/attribute/**")
 
@@ -66,8 +65,10 @@ public class GatewayConfig {
                         .uri("lb://CATEGORY-SERVICE/category"))
 
                 // comment
-                .route("COMMENT-SERVICE", r -> r.path("/api/comment-service/**")
+                .route("COMMENT-SERVICE", r -> r.path("/api/comment-service/product/**")
                         .filters(f -> f.filter(filter))
+                        .uri("lb://COMMENT-SERVICE"))
+                .route("COMMENT-SERVICE", r -> r.path("/api/comment-service/auth/**")
                         .uri("lb://COMMENT-SERVICE"))
 
                 // supplier
