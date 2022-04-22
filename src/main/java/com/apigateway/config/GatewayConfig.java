@@ -28,6 +28,9 @@ public class GatewayConfig {
                 .route("USER-SERVICE", r -> r.path("/api/user-service/admin/**")
                         .filters(f -> f.filter(adminFilter))
                         .uri("lb://USER-SERVICE/admin"))
+                .route("USER-SERVICE", r -> r.path("/api/user-service/address/**")
+                        .filters(f -> f.filter(filter))
+                        .uri("lb://USER-SERVICE/address"))
 
                 // product
                 .route("PRODUCT-SERVICE", r -> r.path("/api/product-service/admin/**")
