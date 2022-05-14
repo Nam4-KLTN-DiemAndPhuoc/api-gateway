@@ -68,7 +68,7 @@ public class GatewayConfig {
                         .uri("lb://CATEGORY-SERVICE/category"))
 
                 // comment
-                .route("COMMENT-SERVICE", r -> r.path("/api/comment-service/product/**")
+                .route("COMMENT-SERVICE", r -> r.path("/api/comment-service/comment/**")
                         .filters(f -> f.filter(filter))
                         .uri("lb://COMMENT-SERVICE"))
                 .route("COMMENT-SERVICE", r -> r.path("/api/comment-service/auth/**")
@@ -80,6 +80,16 @@ public class GatewayConfig {
                         .uri("lb://SUPPLIER-SERVICE/admin"))
                 .route("SUPPLIER-SERVICE", r -> r.path("/api/supplier-service/supplier/**")
                         .uri("lb://SUPPLIER-SERVICE/supplier"))
+
+                // voucher
+                .route("VOUCHER-SERVICE", r -> r.path("/api/voucher-service/admin/**")
+                        .filters(f -> f.filter(adminFilter))
+                        .uri("lb://VOUCHER-SERVICE/admin"))
+                .route("VOUCHER-SERVICE", r -> r.path("/api/voucher-service/auth/**")
+                        .filters(f -> f.filter(filter))
+                        .uri("lb://VOUCHER-SERVICE/auth"))
+
+
                 .build();
     }
 
